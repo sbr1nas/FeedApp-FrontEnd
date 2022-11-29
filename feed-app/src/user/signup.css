@@ -1,0 +1,98 @@
+.wrapper {
+  display: flex;
+  justify-content: center;
+  margin-left:auto;
+  margin-right: auto;
+  width:1000px;
+}
+
+
+.signup-box {
+  width: 500px;
+  
+}
+
+.signup-image {
+  width: 600px;
+  height: auto;
+  margin-left: -100px;
+  
+}
+
+.signup-container {
+    max-width: 450px;
+    margin: 0 auto;
+    margin: 0 auto;
+    margin-top: 40px;
+    padding: 30px 0px 0px 0px;
+    border: 3px solid #437777;
+    border-radius: 50px;
+    background-color: rgba(255, 255, 255, 0.705);
+    font-size: 32px;
+    font-weight: 700;
+  }
+  
+  .login-link-container {
+    font-family: "Poppins", sans-serif;
+    display: flex;
+    justify-content: center;
+    max-width: 450px;
+    margin: 0 auto;
+    margin: 0 auto;
+    margin-top: 10px;
+    padding: 20px;
+    border: 3px solid #437777;
+    border-radius: 50px;
+    background-color: rgba(255, 255, 255, 0.705);
+    color: #999;
+  }
+  
+  
+  .login-link-container a {
+    font-family: "Poppins", sans-serif;
+    margin-left: 5px;
+    font-weight: bold;
+    color: #437777;
+  }
+  
+  
+  .signup-form-button {
+
+    width: 100%;
+  }
+  
+  .ant-form-item-with-help {
+    margin-bottom: 10px;
+  }
+  
+  .logo-container {
+    text-align: center;
+    margin-bottom: 15px;
+  }
+  
+  .signup-container img {
+    width: 200px;
+  }
+
+  .welcome-msg {
+    font-family: "Bungee", sans-serif;
+    font-size: 28px;
+  }
+
+  .register-msg {
+    font-family: "Poppins", sans-serif;
+    margin-top: -32px;
+    text-align:center;
+    font-size: 13px;
+  }
+
+  .signup-form-button {
+    font-family: "Poppins", sans-serif;
+    background-color: #437777;
+    color:#fff;
+  }
+
+  :where(.css-dev-only-do-not-override-qofb5)[class^="ant-input"], :where(.css-dev-only-do-not-override-qofb5)[class*=" ant-input"]{
+    font-family:"Poppins", sans-serif;
+    font-size: 16px;
+  }
