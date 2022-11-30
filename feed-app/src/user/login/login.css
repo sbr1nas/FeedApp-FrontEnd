@@ -2,7 +2,7 @@
     max-width: 500px;
     margin: 0 auto;
     margin: 0 auto;
-    margin-top: 40px;
+    margin-top: 50px;
     padding: 50px 50px 40px 50px;
     border: 3px solid #437777;
     border-radius: 50px;
@@ -54,7 +54,6 @@
     border-radius: 50px;
     position: fixed; 
     width: 100%;
-  
     background-image: url(../../images/journals_bg.png);
     background-position: 65% 75%;
     opacity: 0.48;
@@ -76,8 +75,20 @@
   }
 
   .logo-container {
+    margin-top: 5px; 
     font-family: "Bungee", sans-serif;
     font-size: 40px;
     color: #437777;
     
+  }
+
+  .icon-main {
+    margin-left: 145px;
+    margin-top: -85px; 
+    background-color: rgb(247, 220, 220);
+    border: 10px solid #437777;
+    border-radius: 100%;
+    padding: 12px; 
+    position: fixed;
+    z-index: 1;
   }

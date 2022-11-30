@@ -4,7 +4,7 @@ import "./login.css";
 import { Row, Col } from "antd"; 
 import { Link } from "react-router-dom";
 import LoginForm from "../../components/loginForm/LoginForm";
-import Background from "../../images/journals_bg.png";
+import Icon from "../../images/icon_main.png";
 
 const Login = ({ currentUser, isAuthenticated }) => {
     let navigate = useNavigate(); 
@@ -18,7 +18,9 @@ const Login = ({ currentUser, isAuthenticated }) => {
     return(
         <React.Fragment>
             <div className="login-container">
+            <img className="icon-main" src={Icon} />
             <div className="login-absolute-box"></div>
+                
                 <Row type="flex" justify="center">
                     <Col pan={24}>
                         <div className="logo-container">

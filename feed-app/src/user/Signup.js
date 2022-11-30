@@ -11,6 +11,8 @@ import {
   USERNAME_MAX_LENGTH,
   PASSWORD_MIN_LENGTH,
   PASSWORD_MAX_LENGTH,
+  PHONE_MAX_LENGTH,
+  PHONE_MIN_LENGTH
 } from "../common/constants";
 
 const FormItem = Form.Item;
@@ -74,7 +76,7 @@ const validateUsername = (username) => {
   if (!username) {
     return {
       validateStatus: "warning",
-      errorMsg: "Please input a username",
+      errorMsg: "Please create a username",
     };
   }
   if (username.length < USERNAME_MIN_LENGTH) {
@@ -100,7 +102,7 @@ const validatePassword = (password) => {
   if (!password) {
     return {
       validateStatus: "warning",
-      errorMsg: `Please input a poassword`,
+      errorMsg: `Please create a password`,
     };
   }
   if (password.length < PASSWORD_MIN_LENGTH) {
@@ -121,6 +123,31 @@ const validatePassword = (password) => {
   }
 };
 
+const validatePhone = (phone) => {
+  if (!phone) {
+    return {
+      validateStatus: "warning",
+      errorMsg: 'Please enter your phone number',
+    };
+  }
+  if (phone.length < PHONE_MIN_LENGTH){
+    return{
+    validateStatus: "error",
+    errorMsg: `Phone Number Not Valid (Minimum ${PHONE_MIN_LENGTH} characters needed.)`,
+    };
+  } else if (phone.length > PHONE_MAX_LENGTH){
+    return{
+      validateStatus: "error",
+      errorMsg: `Phone Number Not Valid (Maximum ${PHONE_MAX_LENGTH} characters allowed)`,
+    };
+  } else {
+    return {
+      validateStatus: "success",
+      errorMsg: null,
+    };
+  }
+};
+
 const Signup = ({ currentUser, isAuthenticated }) => {
   let navigate = useNavigate();
 
@@ -128,6 +155,7 @@ const Signup = ({ currentUser, isAuthenticated }) => {
   const [username, setUsername] = useState({ value: "" });
   const [email, setEmail] = useState({ value: "" });
   const [password, setPassword] = useState({ value: "" });
+  const [phone, setPhone] = useState({ value: "" });
 
   useEffect(() => {
     if (isAuthenticated) {
@@ -141,6 +169,7 @@ const Signup = ({ currentUser, isAuthenticated }) => {
       email: email.value,
       username: username.value,
       password: password.value,
+      phone: phone.value,
     };
     console.log(signupRequest);
     // Code to link with signup api
@@ -171,6 +200,11 @@ const Signup = ({ currentUser, isAuthenticated }) => {
         value: inputValue,
         ...validationFun(inputValue),
       });
+    } else if (inputName === "phone"){
+      setPhone({
+        value: inputValue,
+        ...validationFun(inputValue),
+      });
     }
   };
 
@@ -179,7 +213,8 @@ const Signup = ({ currentUser, isAuthenticated }) => {
       name.validateStatus === "success" &&
       username.validateStatus === "success" &&
       email.validateStatus === "success" &&
-      password.validateStatus === "success"
+      password.validateStatus === "success" &&
+      phone.validateStatus === "success"
     );
   };
 
@@ -226,6 +261,20 @@ const Signup = ({ currentUser, isAuthenticated }) => {
                   placeholder="EMAIL"
                   value={email.value}
                   onChange={(event) => handleInputChange(event, validateEmail)}
+                />
+              </FormItem>
+              <FormItem
+                validateStatus={phone.validateStatus}
+                help={phone.errorMsg}
+                hasFeedback
+                name="phone"
+              >
+                <Input
+                  size="large"
+                  name="phone"
+                  placeholder="PHONE"
+                  value={phone.value}
+                  onChange={(event) => handleInputChange(event, validatePhone)}
                 />
               </FormItem>
               <FormItem
