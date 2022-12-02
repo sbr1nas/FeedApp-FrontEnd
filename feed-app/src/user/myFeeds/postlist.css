@@ -1,0 +1,29 @@
+#feedgrid {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 10px; 
+    margin-bottom: 5px;
+    max-height: 100%; 
+    overflow-y: scroll; 
+}
+
+.feedgrid-container {
+    max-width: 95%; 
+    height: 75vh; 
+    margin-left: auto; 
+    margin-right: auto;
+    padding: 15px; 
+    font-family: "Bungee", cursive; 
+    font-size: 45px; 
+    text-align: center; 
+    color: #437777;
+    
+}
+
+.feedgrid-images {
+    border-radius: 15px; 
+    height: 300px; 
+    width: 390px; 
+    object-fit: cover; 
+    border: 8px double #437777;
+}

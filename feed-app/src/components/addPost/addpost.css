@@ -1,0 +1,18 @@
+#addpost-container {
+    padding-top: 45px; 
+    margin-top: 0; 
+}
+
+#addpost-field {
+    margin-top: -20px; 
+    max-width: 80%; 
+}
+
+#addpostbtn {
+    background-color: #437777;
+    color:#fff;
+}
+
+#urlbox {
+    border: 1px solid #437777;
+}

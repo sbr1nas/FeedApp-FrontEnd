@@ -1,28 +1,31 @@
+.container {
+  display:block;
+  margin: 0 auto; 
+}
+
 .login-container {
     max-width: 500px;
-    margin: 0 auto;
-    margin: 0 auto;
-    margin-top: 50px;
+    height: 441px;
+    margin: 50px auto 0 auto;
     padding: 50px 50px 40px 50px;
     border: 3px solid #437777;
     border-radius: 50px;
     font-size: 32px;
-    font-weight: 700;
-    position: relative;
+    font-weight: 700; 
   }
 
   .login-absolute-box {
-    width: 494px;
-    height: 430px;
+    width: 496px;
+    height: 436px;
     margin-top: -50px;
-    margin-left: -50px;
+    margin-left: -51px;
     border-radius: 50px;
     background-image: url(../../images/journals_bg.png);
     background-position: 65% 30%;
     opacity: 0.48;
     font-size: 32px;
     font-weight: 700;
-    position: fixed; 
+    position: absolute;
   }
 
   .signup-box {
@@ -39,11 +42,11 @@
     max-width: 500px;
     margin: 0 auto;
     margin: 0 auto;
-    margin-top: 10px;
     padding: 20px;
     border: 3px solid #437777;
     border-radius: 50px;
-    color: #000000;
+    color: rgb(117, 111, 111);
+    text-shadow: 0px 0px 1px rgb(117, 111, 111);
     font-family: "Poppins", sans-serif;
     position: relative;
   }
@@ -52,7 +55,7 @@
     max-width: 500px;
     height: 64px;
     border-radius: 50px;
-    position: fixed; 
+    position: absolute; 
     width: 100%;
     background-image: url(../../images/journals_bg.png);
     background-position: 65% 75%;
@@ -64,19 +67,23 @@
     margin-left: 5px;
     font-weight: bold;
     color: #437777;
+    text-shadow: none;
   }
 
   .login-msg {
     font-family: "Poppins", sans-serif;
-    font-size: 14px; 
-    margin-top: -25px;
+    font-size: 16px; 
+    font-weight: initial;
+    text-shadow: 0px 0px 1px black;
     margin-bottom:25px;
     text-align:center;
+
   }
 
   .logo-container {
-    margin-top: 5px; 
+    margin-top: 30px; 
     font-family: "Bungee", sans-serif;
+    text-shadow: 0px 0px 4px whitesmoke;
     font-size: 40px;
     color: #437777;
     
@@ -89,6 +96,6 @@
     border: 10px solid #437777;
     border-radius: 100%;
     padding: 12px; 
-    position: fixed;
+    position: absolute;
     z-index: 1;
   }

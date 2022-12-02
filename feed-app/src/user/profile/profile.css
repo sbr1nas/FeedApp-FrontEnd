@@ -1,0 +1,15 @@
+#secondary-navbar {
+    padding-bottom: 10px; 
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+}
+
+.text-indigo-500.border-b-2.font-medium.border-indigo-500 {
+    border-bottom: 3px solid #437777;
+    font-weight: bold;
+    color: #437777;
+}
+
+.hover\:text-indigo-500:hover {
+    color: black;
+}

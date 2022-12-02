@@ -1,0 +1,66 @@
+main {
+    width:auto; 
+}
+#navbar{
+    width: 100%; 
+}
+#header-custom {
+    margin-top: 15px; 
+    padding: 5px 0px;
+    position: static; 
+      
+}
+
+#header { 
+    max-width: 95%; 
+    margin-left: auto; 
+    margin-right: auto; 
+    
+}
+
+.bg-white {
+    max-width: 95%; 
+    margin-left: auto; 
+    margin-right: auto; 
+    border-radius: 8px; 
+    background: rgba(255, 255, 255, 0.705);
+    border-bottom: 5px solid #437777; 
+    border-right: 5px solid #437777; 
+    font-family: "Poppins", sans-serif;
+    color: #437777;
+}
+ #navbar-text {
+    color: #437777;
+ }
+
+ #navbar-text-logo {
+    font-family: "Bungee", cursive; 
+    font-size: 32px; 
+ }
+
+ #homelink, li a, #myfeedslink, #profilelink {
+    font-size: 18px;
+ }
+
+
+ #icon-header {
+   height: 65px; 
+   border: 5px solid #437777;
+   border-radius: 100%;
+   padding: 2px;
+ }
+
+ .profile-pic {
+    object-fit: cover; 
+    height: 80px; 
+    width: 85px; 
+    border: 5px solid #437777;
+    border-radius: 100%;  
+ }
+
+ .profile-pic:hover {
+    transform: scale(1.65);
+    transform-origin: 135px 25px;  
+    z-index: 1; 
+    position: absolute; 
+ }

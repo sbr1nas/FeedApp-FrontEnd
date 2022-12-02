@@ -33,6 +33,7 @@
   
   .login-link-container {
     font-family: "Poppins", sans-serif;
+    text-shadow: 1px 0px 0.5px #999;
     display: flex;
     justify-content: center;
     max-width: 450px;
@@ -56,7 +57,9 @@
   
   
   .signup-form-button {
-
+    font-family: "Poppins", sans-serif;
+    background-color: #437777;
+    color:#fff;
     width: 100%;
   }
   
@@ -80,15 +83,10 @@
 
   .register-msg {
     font-family: "Poppins", sans-serif;
-    margin-top: -32px;
     text-align:center;
-    font-size: 13px;
-  }
-
-  .signup-form-button {
-    font-family: "Poppins", sans-serif;
-    background-color: #437777;
-    color:#fff;
+    font-size: 14px;
+    font-weight: initial; 
+    text-shadow: 0.5px 0px 0.5px #437777;
   }
 
   :where(.css-dev-only-do-not-override-qofb5)[class^="ant-input"], :where(.css-dev-only-do-not-override-qofb5)[class*=" ant-input"]{
