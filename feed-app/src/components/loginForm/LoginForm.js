@@ -21,9 +21,24 @@ const LoginForm = () => {
         name: apiResponse.userID.name,
       };
       appContext.setSession(tokenData);
-      toast("Login Successful!");
+      toast("Login Successful!", 
+      {
+        style: {
+          border: "5px double #437777",
+          background: "#fcc2c2",
+          color: "#437777",
+          marginTop: "100px",
+          marginLeft: "100px",
+        }});
     } else {
-      toast("Invalid username or password");
+      toast("Invalid username or password",
+       {
+        style: {
+          border: "5px double #fcc2c2d0",
+          background: "#437777",
+          color: "#fcc2c2",
+          marginTop: "25px",
+        }});
     }
   };
 

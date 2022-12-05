@@ -171,9 +171,27 @@ const Signup = () => {
      
     if(apiResponse){
       navigate("/login");
-      toast("Congratulations on successfully signing up!! Please login to continue...");
+      toast(`Congratulations on successfully signing up!! 
+      Please login to continue...`, 
+      {
+        style:{
+          border: "5px double #437777",
+          background: "#fcc2c2",
+          color: "#437777",
+          marginTop: "22px",
+          textAlign: "center",
+        }
+      });
     } else{
-      toast("Hmmm....Looks like something's gone wrong. Did you forget you already had an account?");
+      toast(`Hmmm....Looks like something's gone wrong. 
+      Did you forget you already had an account?`, 
+      {
+        style:{
+          border: "5px double #fcc2c2d0",
+          background: "#437777",
+          color: "#fcc2c2",
+          marginTop: "250px",
+        }});
     }
   };
 
