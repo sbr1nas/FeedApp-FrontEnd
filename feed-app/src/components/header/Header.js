@@ -1,13 +1,17 @@
-import React, { useEffect } from "react";
+import React, { useContext} from "react";
 import "./header.css";
 import { Link } from "react-router-dom";
 import Icon from "../../images/icon_main.png";
 import DisplayPic from "../../images/displaypic_placeholder.jpg";
+import { AppContext } from "../../context/applicationContext";
 
 const Header = (props) => {
+  const appContext = useContext(AppContext);
+
   const logout = () => {
-    //logout funtionality goes here
+    appContext.logout(); 
   };
+  
   return (
     <>
       <header className="sticky top-0 z-50" id="header-custom">

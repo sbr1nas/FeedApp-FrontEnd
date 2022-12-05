@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./signup.css";
 import SignupImage from "../images/signup_vector.png";
 import { Form, Input, Button, Row, Col } from "antd";
@@ -14,6 +14,8 @@ import {
   PHONE_MAX_LENGTH,
   PHONE_MIN_LENGTH
 } from "../common/constants";
+import { signUpApi } from "../util/ApiUtil";
+import toast from "react-hot-toast";
 
 const FormItem = Form.Item;
 
@@ -148,7 +150,7 @@ const validatePhone = (phone) => {
   }
 };
 
-const Signup = ({ currentUser, isAuthenticated }) => {
+const Signup = () => {
   let navigate = useNavigate();
 
   const [name, setName] = useState({ value: "" });
@@ -157,22 +159,22 @@ const Signup = ({ currentUser, isAuthenticated }) => {
   const [password, setPassword] = useState({ value: "" });
   const [phone, setPhone] = useState({ value: "" });
 
-  useEffect(() => {
-    if (isAuthenticated) {
-      navigate("/");
-    }
-  }, []);
 
-  const onFinish = (values) => {
-    const signupRequest = {
-      name: name.value,
-      email: email.value,
-      username: username.value,
-      password: password.value,
-      phone: phone.value,
-    };
-    console.log(signupRequest);
-    // Code to link with signup api
+  const onFinish = async () => {
+    const apiResponse = await signUpApi(
+      username.value,
+      name.value,
+      email.value,
+      phone.value,
+      password.value
+    );
+     
+    if(apiResponse){
+      navigate("/login");
+      toast("Congratulations on successfully signing up!! Please login to continue...");
+    } else{
+      toast("Hmmm....Looks like something's gone wrong. Did you forget you already had an account?");
+    }
   };
 
   const handleInputChange = (event, validationFun) => {
@@ -333,6 +335,7 @@ const Signup = ({ currentUser, isAuthenticated }) => {
       </div>
     </React.Fragment>
   );
+
 };
 
 export default Signup;
