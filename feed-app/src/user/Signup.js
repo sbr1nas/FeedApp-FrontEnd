@@ -16,6 +16,8 @@ import {
 } from "../common/constants";
 import { signUpApi } from "../util/ApiUtil";
 import toast from "react-hot-toast";
+import {auth} from "../util/FirebaseConfig";
+import { createUserWithEmailAndPassword, sendEmailVerification } from "firebase/auth"; 
 
 const FormItem = Form.Item;
 
@@ -170,9 +172,15 @@ const Signup = () => {
     );
      
     if(apiResponse){
-      navigate("/login");
+      createUserWithEmailAndPassword(auth, email.value, password.value)
+      .then(() => {
+        sendEmailVerification(auth.currentUser)
+        .then(() => {
+          //navigate("/login")})
+          navigate("/verify")})
+      })
       toast(`Congratulations on successfully signing up!! 
-      Please login to continue...`, 
+      Verification email has been sent to ${email.value}`, 
       {
         style:{
           border: "5px double #437777",

@@ -1,0 +1,42 @@
+#email-container {
+    color: rgba(255, 255, 255, 0.705);
+    margin: 80px auto 0 auto; 
+    padding: 35px 20px;
+    border: 15px double #437777;
+    border-radius: 50px;
+    text-align: center;
+    width: 75%; 
+    font-family: "Poppins", sans-serif; 
+    color: #437777; 
+    box-shadow: 5px 5px; 
+    
+}
+
+#email-sent {
+    height: 170px; 
+    width: 180px;
+    margin: 15px auto;
+    box-sizing: border-box; 
+    border-radius: 100%; 
+    border: 2px double #437777;
+
+
+}
+
+#email-title {
+    font-family: "Bungee", cursive; 
+    font-size: 28px; 
+    font-weight: bold; 
+    color: #437777;
+}
+
+#resend-btn {
+    font-family: "Poppins", sans-serif;
+    font-weight: bold; 
+    background-color: #437777;
+    border-radius: 15px; 
+    color:#fff;
+    width: 20%;
+    padding: 10px 20px; 
+    margin-top: 25px; 
+}

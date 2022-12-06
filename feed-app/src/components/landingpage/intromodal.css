@@ -1,0 +1,28 @@
+#slider-container{
+    height: 500px;
+    max-width: 90%; 
+}
+
+#dialog-box{
+    height: 500px; 
+    width: 900px;
+    display: flex; 
+    justify-content: center;  
+}
+
+#intro-box{
+    background: rgb(216, 141, 141);
+    border: 15px double #437777; 
+    
+}
+
+.carouselImg
+{
+   max-width: 65%; 
+   display: inline; 
+}
+
+.carouselText {
+    display: inline; 
+    margin-left: 50px; 
+}

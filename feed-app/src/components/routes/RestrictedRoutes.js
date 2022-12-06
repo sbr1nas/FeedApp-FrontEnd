@@ -4,15 +4,17 @@ import Header from "../header/Header";
 import Profile from "../../user/profile/Profile";
 import Home from "../../user/home/Home";
 import PostList from "../../user/myFeeds/PostList";
+import VerifyEmail from "../../util/VerifyEmail";
 
-const RestrictedRoutes = ( {currentUser} ) => {
-    
+
+const RestrictedRoutes = ( {currentUser}) => {
     return (
         <Routes>
             <Route path="*" element={<Navigate to="/" replace />} />
             <Route exact path="/profile" element={<Header><Profile currentUser={currentUser} /></Header>} />
             <Route exact path = "/" element={<Header><Home currentUser={currentUser} /></Header>} /> 
-            <Route exact path = "/myFeeds" element={<Header><PostList currentUser={currentUser}/></Header>} /> 
+            <Route exact path = "/myFeeds" element={<Header><PostList currentUser={currentUser}/></Header>} />
+            <Route exact path = "/verify" element={<VerifyEmail currentUser={currentUser} />} /> 
           </Routes>
     )
 };

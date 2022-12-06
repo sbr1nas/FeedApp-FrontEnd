@@ -11,14 +11,15 @@ const { Content } = Layout;
 const App = () => {
   const appContext = useContext(AppContext);
   const userData = appContext.getSession(); 
+  console.log(userData);
 
   const [currentUser, setCurrentUser] = useState(null); 
   const [isAuthenticated, setIsAuthenticated] = useState(null);
 
   useEffect(() => {
     if (userData) {
-      setCurrentUser(userData); 
-      setIsAuthenticated(true);      
+      setCurrentUser(userData);
+      setIsAuthenticated(true);
     } else {
       setIsAuthenticated(false);
     }
@@ -36,7 +37,7 @@ const App = () => {
           </Content>
           </Layout>
   );
- } else{
+ } else {
   return(
     <Layout className="layout">
       <Content className="app-content">

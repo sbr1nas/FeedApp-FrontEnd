@@ -1,17 +1,49 @@
 import React, { useState } from "react";
 import "./addpost.css";
 import * as Yup from "yup";
-
 import { Formik, Form, useField } from "formik";
-
 import FormField from "../formField/FormField";
+import toast from "react-hot-toast"; 
+import { addFeedApi } from "../../util/ApiUtil";
 
-const AddPost = () => {
+const AddPost = ({ currentUser }) => {
   const [isFetching, setIsFetching] = useState(false);
 
-  const onFormSubmit = (values) => {
-    //add post api code goes here
-    console.log(values);
+  const onFormSubmit = async (values, { resetForm }) => {
+    if (!isFetching) {
+      setIsFetching(true); 
+      const apiResponse = await addFeedApi(
+        currentUser.token,
+        currentUser.username,
+        values.post,
+        values.postImageUrl
+      );
+      if (!apiResponse) {
+        console.log("apiResponse doesn't exist - but post is published??")
+        toast ("Post has been published 🥳", 
+        {
+          style:{
+            border: "5px double #fcc2c2d0",
+            background: "#437777",
+            color: "#fcc2c2",
+            marginTop: "250px",
+          }
+        });
+        resetForm();
+      } else {
+        toast (`Failed to publish post 😭
+        Please try again later`, 
+        {
+          style:{
+            border: "5px double #fcc2c2d0",
+            background: "#437777",
+            color: "#fcc2c2",
+            marginTop: "250px",
+          }
+        });
+      }
+      setIsFetching(false);
+    }
   };
 
   const AddPostSchema = Yup.object().shape({
