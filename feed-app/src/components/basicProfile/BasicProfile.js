@@ -34,15 +34,17 @@ const BasicProfile = ({ currentUser }) => {
       currentUser.username
     );
     if (apiResponse) {
-      setPosition(apiResponse.position);
-      setLanguages(apiResponse.languages);
-      setCompany(apiResponse.company);
-      setEducation(apiResponse.education);
-      setCompanyAddress(apiResponse.companyAddress);
-      setCertification(apiResponse.certification);
-      setInterests(apiResponse.interests);
-      setSkills(apiResponse.skills);
-      setExperience(apiResponse.experience);
+      setName(apiResponse.name);
+      setEmail(apiResponse.email)
+      setPosition(apiResponse.profile.position);
+      setLanguages(apiResponse.profile.languages);
+      setCompany(apiResponse.profile.company);
+      setEducation(apiResponse.profile.education);
+      setCompanyAddress(apiResponse.profile.companyAddress);
+      setCertification(apiResponse.profile.certification);
+      setInterests(apiResponse.profile.interests);
+      setSkills(apiResponse.profile.skills);
+      setExperience(apiResponse.profile.experience);
     }
     console.log(apiResponse); 
     setIsLoading(false);
@@ -54,6 +56,8 @@ const BasicProfile = ({ currentUser }) => {
 
       const apiResponse = await updateBasicProfileApi(
         currentUser.token,
+        values.name,
+        values.email,
         values.position,
         values.company,
         currentUser.username,
@@ -65,6 +69,7 @@ const BasicProfile = ({ currentUser }) => {
         values.education,
         values.languages
       );
+      console.log(apiResponse); 
       if (apiResponse) {
         toast("Profile has been updated 🥳",
         {

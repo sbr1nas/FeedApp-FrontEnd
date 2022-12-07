@@ -114,7 +114,9 @@ export const getBasicProfileApi = async (token, username) => {
 };
 
 export const updateBasicProfileApi = async (
-    token, 
+    token,
+    name,
+    email, 
     position,
     company,
     usernameKey,
@@ -131,16 +133,20 @@ export const updateBasicProfileApi = async (
         const apiResponse = await axios.put(
             url,
             {
-                position,
-                company,
-                usernameKey,
-                skills,
-                certification,
-                companyAddress,
-                interests,
-                experience,
-                education,
-                languages,
+                name,
+                email,
+                profile: {
+                    position,
+                    company,
+                    usernameKey,
+                    skills,
+                    certification,
+                    companyAddress,
+                    interests,
+                    experience,
+                    education,
+                    languages,   
+                }
             },{
                 headers: { Authorization: `Bearer ${token}`},
             });
