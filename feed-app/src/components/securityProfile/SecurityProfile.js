@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from "react";
 import "./securityprofile.css";
 import * as Yup from "yup";
-
+import toast from "react-hot-toast";
 import { Formik, Form } from "formik";
 
-import LoadingIndicator from "../loadingIndicator/LoadingIndicator";
+//import LoadingIndicator from "../loadingIndicator/LoadingIndicator";
 import FormField from "../formField/FormField";
+import { updateSecurityApi } from "../../util/ApiUtil";
 
-const SecurityProfile = () => {
-  const [isLoading, setIsLoading] = useState(false);
+const SecurityProfile = ({ currentUser }) => {
+  //const [isLoading, setIsLoading] = useState(false);
+  const [isSubmit, setIsSubmit] = useState(false);
 
   const [password, setPassword] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
@@ -27,19 +29,56 @@ const SecurityProfile = () => {
     //load security api code goes here
   };
 
-  const onFormSubmit = (values) => {
-    //save security api code goes here
-    console.log(values);
+  const onFormSubmit = async (values) => {
+    if (!isSubmit) {
+      setIsSubmit(true); 
+
+      const apiResponse = await updateSecurityApi(
+          currentUser.token,
+          currentUser.username, 
+          values.securityQuestion1,
+          values.securityAnswer1,
+          values.securityQuestion2,
+          values.securityAnswer2,
+          values.securityQuestion3,
+          values.securityAnswer3,
+          values.phoneNumber,
+          values.password
+        );
+      if (apiResponse) {
+        toast("Settings have been updated 🥳",
+        {
+          style:{
+            border: "5px double #fcc2c2d0",
+            background: "#437777",
+            color: "#fcc2c2",
+            marginTop: "250px",
+          }
+        });
+      } else {
+        toast(`Failed to update settings 😭
+        Please try again later`, 
+        {
+          style:{
+            border: "5px double #fcc2c2d0",
+            background: "#437777",
+            color: "#fcc2c2",
+            marginTop: "250px",
+          }
+        });
+      }
+      setIsSubmit(false); 
+    }
   };
 
-  if (isLoading) {
+  /*if (isLoading) {
     return <LoadingIndicator fullPage />;
-  }
+  }*/
 
   const SecurityProfileSchema = Yup.object().shape({
     password: Yup.string()
       .matches(
-        /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/,
+        /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,})/,
         "Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and One Special Case Character"
       )
       .required("Required"),

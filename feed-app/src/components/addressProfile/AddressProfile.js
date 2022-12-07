@@ -1,14 +1,17 @@
 import React, { useEffect, useState } from "react";
 import "./addressprofile.css";
 import * as Yup from "yup";
+import toast from "react-hot-toast";
 
 import { Formik, Form } from "formik";
 
 import LoadingIndicator from "../loadingIndicator/LoadingIndicator";
 import FormField from "../formField/FormField";
+import { getAddressApi, updateAddressApi } from "../../util/ApiUtil";
 
-const AddressProfile = () => {
-  const [isLoading, setIsLoading] = useState(false);
+const AddressProfile = ({ currentUser }) => {
+  const [isLoading, setIsLoading] = useState(true);
+  const [isSubmit, setIsSubmit] = useState(false); 
 
   const [address, setAddress] = useState("");
   const [state, setState] = useState("");
@@ -20,13 +23,59 @@ const AddressProfile = () => {
     loadAddressProfile();
   }, []);
 
-  const loadAddressProfile = () => {
-    //load address api code goes here
+  const loadAddressProfile = async () => {
+    const apiResponse = await getAddressApi(
+      currentUser.token,
+      currentUser.username
+    );
+    if (apiResponse && apiResponse.length > 0) {
+      const addressDetails =apiResponse[0];
+      setAddress(addressDetails.id.address);
+      setPinCode(addressDetails.id.pincode);
+      setCity(addressDetails.city);
+      setState(addressDetails.state);
+      setCountry(addressDetails.country);
+    }
+    setIsLoading(false);
   };
 
-  const onFormSubmit = (values) => {
-    //save address api code goes here
-    console.log(values);
+  const onFormSubmit = async (values) => {
+    if(!isSubmit) {
+      setIsSubmit(true);
+
+      const apiResponse = await updateAddressApi(
+        currentUser.token,
+        currentUser.username,
+        values.city,
+        values.state,
+        values.country,
+        values.address,
+        values.pinCode
+      );
+      if (apiResponse) {
+        toast("Address has been updated 🥳",
+        {
+          style:{
+            border: "5px double #fcc2c2d0",
+            background: "#437777",
+            color: "#fcc2c2",
+            marginTop: "250px",
+          }
+        });
+      } else {
+        toast(`Failed to update address details 😭
+        Please try again later`, 
+        {
+          style:{
+            border: "5px double #fcc2c2d0",
+            background: "#437777",
+            color: "#fcc2c2",
+            marginTop: "250px",
+          }
+        });
+      }
+      setIsSubmit(false);
+    }
   };
 
   if (isLoading) {

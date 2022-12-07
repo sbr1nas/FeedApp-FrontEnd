@@ -1,13 +1,18 @@
 #slider-container{
-    height: 500px;
-    max-width: 90%; 
+    height: 100%;
+    width: 100%; 
 }
 
 #dialog-box{
-    height: 500px; 
-    width: 900px;
-    display: flex; 
-    justify-content: center;  
+    height: 60vh; 
+    width: 125vh;
+}
+
+.slides{
+    height: 100%; 
+    width: 100%; 
+    display: flex!important; 
+    flex-direction: row; 
 }
 
 #intro-box{
@@ -18,11 +23,15 @@
 
 .carouselImg
 {
-   max-width: 65%; 
-   display: inline; 
+   width: 50%; 
+   height: 100%; 
+   margin: 0px 35px; 
 }
 
 .carouselText {
-    display: inline; 
-    margin-left: 50px; 
+   width: 100%; 
+   height: 100%; 
+   margin-top: 25%
+
 }
+

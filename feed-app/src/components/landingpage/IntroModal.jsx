@@ -17,18 +17,18 @@ const IntroModal = ({ setIsOpen }) => {
             <Slider 
                 infinite={true}
                 slidesToShow= {1}
-                dots={false}
+                dots={true}
                 slidesToScroll={1}
                 autoplay={true}
                 autoplaySpeed={2000}
                 pauseOnHover={true}>
-                <div id = "slides" onDoubleClick={() => setIsOpen(false)}>
+                <div className="slides" onDoubleClick={() => setIsOpen(false)}>
+                    <h1 className="carouselText"> LOST? </h1>
                     <img className="carouselImg" src={Lost} />
-                        <h1 className="carouselText"> LOST? </h1>
                 </div>
-                <div id = "slides" onDoubleClick={() => setIsOpen(false)}>
+                <div className="slides" onDoubleClick={() => setIsOpen(false)}>
                     <img className="carouselImg" src={SignUp} />
-                        <h2 className="carouselText"> SIGN UP? </h2>
+                    <h2 className="carouselText"> SIGN UP? </h2>
                 </div>
             </Slider>
             </div>
