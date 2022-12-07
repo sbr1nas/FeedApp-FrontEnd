@@ -6,6 +6,8 @@
 #dialog-box{
     height: 60vh; 
     width: 125vh;
+    max-height: 475px;
+    max-width: 900px;  
 }
 
 .slides{
@@ -16,7 +18,7 @@
 }
 
 #intro-box{
-    background: rgb(216, 141, 141);
+    background: rgb(223, 155, 155);
     border: 15px double #437777; 
     
 }
@@ -25,13 +27,53 @@
 {
    width: 50%; 
    height: 100%; 
-   margin: 0px 35px; 
+   margin: 0px 20px; 
+   border-radius: 15px; 
+   border: 2px double #437777; 
 }
 
-.carouselText {
-   width: 100%; 
-   height: 100%; 
-   margin-top: 25%
+.topline{
+    font-family: "Bungee Shade", cursive;
+    font-size: 45px; 
+    color:#437777;
+    text-align: center; 
+
+}
+.bottomline{
+    font-family: "Bungee", cursive;
+    text-align: center; 
+    font-size: 20px; 
+    color: #437777;
 
 }
 
+.paras{
+    display:inline; 
+    text-align: left;
+    margin-top: 8%; 
+    font-family: Poppins, sans-serif;
+    font-size: 15px; 
+    color: #437777;
+}
+
+#community-img {
+    margin-top: 12%;
+}
+
+#exclusivity-img {
+    margin-top: 8%; 
+}
+
+#security-img {
+    height: 55vh;  
+}
+
+#reliability-img {
+    margin-top: 3%; 
+    max-height: 400px; 
+}
+
+#creativity-img {
+    height: 55vh; 
+    max-height: 400px; 
+}
