@@ -1,4 +1,4 @@
-export const API_BASE_URL = "http://localhost:8080";
+export const API_BASE_URL = "http://feedapp-env-2.eba-c4jp3kkw.us-east-2.elasticbeanstalk.com";
 export const ACCESS_TOKEN = "accessToken";
 
 export const NAME_MIN_LENGTH = 3;
